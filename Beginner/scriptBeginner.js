@@ -42,7 +42,35 @@ console.log(countArrayLength([1,2,3,5,6]));
  - Same as previous problems, use cases if needed for the use case.
 */
 
-// Write a function to check if a number is positive, negative, or zero.
+//4. Write a function to check if a number is positive, negative, or zero.
+//My Way
+const checkNumber = (numberInput) => {
+    if(typeof numberInput === "number"){
+        if(numberInput === 0){
+            return "Zero";
+        }
+        else if(numberInput > 0) {
+            return "Positive";
+        }
+        else{
+            return "Negative";
+        }
+    }
+    else {
+        return "Enter a number";
+    }
+}
+
+/*
+     - Gets an input number, checks if its a number, if yes returns positive, negative or zero.
+     - No traverse, arithmetic, time complexity = O(1)
+     - A more effective way is to use default conditions instead of nested conditions, improves readability. For instance
+     if numberInput === 0 return "Zero";
+     if numberInput > 0 return "Positive";
+     if numberInput < 0 return "Negative";
+     - Usage of ternary operators if it is subjectively more readable - dependant of individuals
+*/
+
 
 // Write a function to get the value of a specified property in an object.
 
