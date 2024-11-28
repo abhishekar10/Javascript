@@ -72,7 +72,28 @@ const checkNumber = (numberInput) => {
 */
 
 
-// Write a function to get the value of a specified property in an object.
+//5. Write a function to get the value of a specified property in an object.
+//My way
+const returnValue = (inputObject, inputKey) => {
+    if (typeof inputObject === "object") {
+        if (inputKey in inputObject) {
+            return inputObject[inputKey];
+        }
+        else {
+            return "Key not available";
+        }
+    }
+    else { 
+        return "Enter valid object as input";
+    }
+}
+
+/*
+ - Gets an object and key as inputs, checks if the inputObject is an object, if yes, checks if the inputKey is present in the object, if yes returns the value.
+ - JS Objects use hash table, time complec=xity O(1), assuming this is a straightforward object with no nested props
+ - Effective way is to use hasOwnProperty ensures only the direct props (the ones we declare) are considered.
+ - Ternary operator if considered more readable.
+*/
 
 // Write a function to add an element to an array and return the updated array.
 
