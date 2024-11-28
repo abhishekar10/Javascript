@@ -117,7 +117,36 @@ if (inputElement) inputArray.push(inputElement);
  - Note : Trying to avoid nested conditions in cases like these simplifies the logic used.
 */
 
-// Write a function to convert a string to uppercase.
+//7. Write a function to convert a string to uppercase.
+//My way
+const convertToUpperCase = (inputString) => {
+    if(!inputString || typeof (inputString) !== "string") return "Enter string";
+    const lowerToUpperMap = {
+        a: 'A', b: 'B', c: 'C', d: 'D', e: 'E',
+        f: 'F', g: 'G', h: 'H', i: 'I', j: 'J',
+        k: 'K', l: 'L', m: 'M', n: 'N', o: 'O',
+        p: 'P', q: 'Q', r: 'R', s: 'S', t: 'T',
+        u: 'U', v: 'V', w: 'W', x: 'X', y: 'Y',
+        z: 'Z'
+    };
+    let result = "";
+    for (let i of inputString) {
+        if (lowerToUpperMap[i]) {
+            result += lowerToUpperMap[i];
+        }
+        else {
+            result += i;
+        }
+    }
+    return result;
+}
+
+/*
+ - This over the top solution doesn't use methods as they are needed to even use ASCII values.
+ - Gets inputString and checks if it is present or if it is a string, if yes, creates an objects for lowercases as keys and uppercases as objects. Checks if the object has the lowercases and adds them to results.
+ - Traverses through inputString so time complexity O(n) where n is the length of the inputAray. Used a object rather than a string initially thinking containing alphabets as traversing through the strings will add to complexity. Why is it not the case is exxplained below.
+ - More effective to use two strings one containing lowercases and the other one containg uppercases. Initially thought the traversal could add to the time complexity but the max length of the string is 26, which means O(26) can be disregarded and considered as O(1) so using this is the same as using object as O(n *1)=O(n) 
+ */
 
 // Write a function to check if an element exists in an array.
 
