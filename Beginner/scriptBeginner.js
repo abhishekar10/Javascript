@@ -34,7 +34,7 @@ const countArrayLength = (inputArray) => {
     }
     return count;
 }
-console.log(countArrayLength([1,2,3,5,6]));
+
 /*
  - Gets an array input, increases count for each element in the array, returns count
  - Time complexity O(n) where n is the length of inputArray
@@ -71,7 +71,6 @@ const checkNumber = (numberInput) => {
      - Usage of ternary operators if it is subjectively more readable - dependant of individuals
 */
 
-
 //5. Write a function to get the value of a specified property in an object.
 //My way
 const returnValue = (inputObject, inputKey) => {
@@ -95,7 +94,28 @@ const returnValue = (inputObject, inputKey) => {
  - Ternary operator if considered more readable.
 */
 
-// Write a function to add an element to an array and return the updated array.
+//6. Write a function to add an element to an array and return the updated array.
+//My Way
+const addElementToArray = (inputArray,inputElement) => {
+    if (Array.isArray(inputArray)) {
+        if (inputElement) inputArray.push(inputElement);
+        return inputArray;
+    }
+    else {
+        return "Enter valid array"
+    }
+}
+
+/*
+ - Gets an array and element as inputs, check if the inputsArray is array. If yes, checks if inputElement is available, if yes adds and returns inputArray
+ - Time complexity O(1) as push is used, if array too big enough, might have to use resize.
+ - More effective is to use (!Array.isArray(inputArray)) instead  (Array.isArray(inputArray)) starting with else condition, in this case we can rewrite it as follows: 
+if (!Array.isArray(inputArray))
+    return "Enter valid array"
+if (inputElement) inputArray.push(inputElement);
+    return inputArray;
+ - Note : Trying to avoid nested conditions in cases like these simplifies the logic used.
+*/
 
 // Write a function to convert a string to uppercase.
 
