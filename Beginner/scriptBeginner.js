@@ -165,7 +165,24 @@ const checkIfElementInArray = (inputArray, searchString) => {
   - Effective to use ternary operator if you find it more readable
 */
 
-// Write a function that generates the multiplication table of a given number up to 10.
+//9. Write a function that generates the multiplication table of a given number up to 10.
+//My Way
+const printMultiplicationTable = (inputNumber) => {
+    if (!(typeof inputNumber === "number")) return "Enter a valid number";
+    if (inputNumber) {
+        for(let i = 1; i<11; i++) {
+            console.log(inputNumber+" * "+i+" = "+inputNumber*i);
+        }
+        return;
+    }
+    return "Enter number";
+}
+
+/*
+ - Gets an input number, checks if it's type is number, check if it is present, returns the multiplication table.
+ - Time complexity is O(1) as the loop runs for a constant 10 times everytime.
+ - Add more type checks for more effectiveness.
+*/
 
 // Write a function to remove the last element of an array.
 
