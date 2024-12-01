@@ -211,22 +211,137 @@ const swapVariables = (variableOne, variableTwo) => {
 /*
  - Gets two input variable numbers, check their presence and availability, uses tempo variable to store first one's value as the swap occurs, returns the values once swapped.
  - Time complexity O(1)
- - Add more checks for the iputs if required for more effectiveness. Use a = a+b; b = a-b ; a = a-b; if you don't want the temp variable.
+ - Add more checks for the iputs if required for more effectiveness. Use a = a+b; b = a-b ; a = a-b; method if you don't want the temp variable.
 */
 
-// Write a function to check if a string contains another string.
+//12. Write a function to check if a string contains another string.
+//My way
+const checkForSubstring = (targetString, searchString) => {
+    if(!targetString || !searchString) return "Enter two values";
+    if(typeof targetString !== "string" || typeof searchString !== "string") return "Enter valid strings";
+    if(targetString.length < searchString.length) return "Search string bigger than target string";
+    if(targetString.includes(searchString)) return "Search string is a substring"
+    return "String not available."
+ }
 
-// Write a function to check if a number is a prime number.
+/*
+ - Gets two string inputs, target and search string.
+ - Check types and presence, use includes if it is present in the target
+ - Time complexity is technically O(n*m) where n is the length of target and m is the length of search, but includes mostly fall in on averge of near O(n) due to searchString only going once maximum i.e., not everytime m will be iterated with n.
+ - Effective to use validations on strings if required
+*/
 
-// Write a function to count the number of vowels in a string.
+//13. Write a function to check if a number is a prime number.
+//My Way
+const checkPrime = (inputNumber) => {
+    if (!inputNumber) return "Enter number";
+    if (!(typeof inputNumber === "number")) return "Enter valid number";
+    for (let i = 2 ; i < inputNumber; i++) {
+        if(inputNumber%i === 0) {
+            return "Number not a prime";
+        }
+    }
+    return "Number is a prime";
+}
 
-// Write a function to add a new property to an object.
+/*
+ - Gets input number, checks for type and availability, iterates till that number, and breaks if divisible by any intermedeite number.
+ - Iterates to a maximum of inputNumber, time complexity = O(inputNumber)
+ - Can be done more efficently with using i <= Math.sqrt(inputNumber) , where time comp is now O(√inputNumber), which could be very efficent for larger numbers.
+  - Could use more validations to check if positive and so if required for more effectiveness.
+*/
 
-// Write a function to check if a string ends with a specific substring.
+//14. Write a function to count the number of vowels in a string.
+//My Way
+const countVowels = (inputString) => {
+    if (!inputString) return "Enter String";
+    if (typeof inputString !== "string") return "Enter valid string";
+    let vowelsString = 'aeiouAEIOU';
+    let count = 0;
+    for (let i of inputString) {
+        if (vowelsString.includes(i)) {
+            count++;
+        }
+    }
+    return count;
+}
 
-// Write a function to find the largest number in an array.
+/*
+ - Gets an input string, checks type and availability, creates a string 'aeiouAEIOU' and number count to compare and store vowels respectively.
+ - Iterates through the input string, time complexity O(length of inputString)
+ - Efficient to use sets instead of string for vowelString (vowelsSet = new Set('aeiouAEIOU)) as JS appraently uses includes at a time comp O(1) instead of O(10) in this case fpr string. Also no need to use !inputString condition as typeof not being string is included.
+ - Use return [...inputString].reduce((count, char) => vowelsSet.has(char) ? count + 1 : count, 0); if this is more readable instead of the loop used.
+*/
 
-// Write a function to find the sum of digits of a given number.
+//15. Write a function to add a new property to an object.
+//My way
+const addProperty = (inputObject, keyToAdd, valueToAdd) => {
+    if (typeof inputObject !== "object" || Array.isArray(inputObject)) return "Enter valid object";
+    if (!keyToAdd) return "Enter Key";
+    if (!valueToAdd) return "Enter value for the key";
+    inputObject[keyToAdd] = valueToAdd ;
+    return "Value added";
+}
+
+/*
+ - Gets 3 inputs - object, key and value. Checks if all the availabilities and types, add the value to the key of the object. 
+ - Time Comp O(1)
+ - For more effectiveness, add more edge cases for value and key, even return the object instead of "Value Added" 
+
+*/
+
+//16. Write a function to check if a string ends with a specific substring.
+//My Way
+const checkEndsWithSubstring = (inputString, inputSubString) => {
+    if(typeof inputString !== "string" || typeof inputSubString !== "string") return "Enter valid strings";
+    const index = -(inputSubString.length);
+    if (inputString.slice(index) === inputSubString) return "Ends with the substring"
+    return "Not ends with substring"
+}
+
+/*
+ - Gets two string inputs, checks for type, create an index which holds the negative of length of sub string.
+ - slice traverses through the length of sub string, time complexity O(n) where n is the length of sub string input
+ - Instead of creating index and using slice, we can use endsWith (inputString.endsWith(inputSubString)). Used slice as didn't know this method existed, same time comp, but less space and more effective.
+*/
+
+//17. Write a function to find the largest number in an array.
+//My Way
+const getMaxValue = (inputArray) => {
+    if(!Array.isArray(inputArray)) return "Enter an array";
+    let maxVal = 0;
+    for (let i of inputArray) {
+        if (i > maxVal) maxVal = i ;
+    }
+    return maxVal;
+}
+
+/*
+ - Gets an inputArray, checks type, uses a maxVal variable to store the maximum Value.
+ - Traverses through the array, time complexity = O(n) where n is the length of the input array
+ - Obvious flaw in this code is that maxVal starts with 0, so the value will be returned as 0 for an array of all negative numbers. A way to counter this is to use -Infinity instead of 0, which means the maxVal is the lowest possible value to start with.
+ - Add more validations for the array elements to consider the comparison is done without any side effects.
+*/
+
+//18. Write a function to find the sum of digits of a given number.
+//My Way
+const sumOfDigits = (inputNumber) => {
+    if (typeof inputNumber !== "number") return "Enter valid number";
+    let sum = 0;
+    let tempVariable = inputNumber ;
+    while (tempVariable > 0) {
+        let reminder = tempVariable % 10;
+        sum += reminder;
+        tempVariable = Math.floor(tempVariable/10);
+    }
+    return "Sum of digits : "+sum;
+}
+
+/*
+ - Gets an input number, check if its a number, uses reminder,sum and temp variable to return the sum of digits
+ - Traverses through the number via flooring, Time Complexity = O(n), where n is the number of digits.
+ - Can add more cases to check if negative, or just return the sum if the sum alone is needed based on requirements. 
+*/
 
 // Write a function to repeat a string n times.
 
