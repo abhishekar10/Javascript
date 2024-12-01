@@ -184,7 +184,18 @@ const printMultiplicationTable = (inputNumber) => {
  - Add more type checks for more effectiveness.
 */
 
-// Write a function to remove the last element of an array.
+//10. Write a function to remove the last element of an array.
+//My Way
+const popElement = (inputArray) => {
+    if (!Array.isArray(inputArray)) return "Enter valid array";
+    return inputArray.pop();
+}
+
+/*
+ - Gets an array input, check if its a valid array, returns popped value
+ - Time complexity O(1) as pop is used
+ - Add more array based checks to improve effectiveness if required.
+*/
 
 // Write a function that swaps the values of two variables.
 
