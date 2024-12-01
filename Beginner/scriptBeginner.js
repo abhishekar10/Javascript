@@ -148,7 +148,22 @@ const convertToUpperCase = (inputString) => {
  - More effective to use two strings one containing lowercases and the other one containg uppercases. Initially thought the traversal could add to the time complexity but the max length of the string is 26, which means O(26) can be disregarded and considered as O(1) so using this is the same as using object as O(n *1)=O(n) 
  */
 
-// Write a function to check if an element exists in an array.
+//8. Write a function to check if an element exists in an array.
+//My way
+const checkIfElementInArray = (inputArray, searchString) => {
+    if(!inputArray) return "Enter Array";
+    if (!searchString) return "Enter Search Value";
+    if (!Array.isArray(inputArray)) return "Enter valid Array";
+    if (searchString in inputArray) return "Element exists!";
+    return "Element does not exist!"
+}
+
+/*
+ - Gets two inputs - array and search string, checks for array and string presence when funciton is called, returns yes of exist.
+ - 'searchString in inputArray' uses O(n) time complexity, where n is the length of the inputArray
+ - Could be more efficient if this is a sorted array (for numbers) or a hashed object. Sorting/hashing could take their own time complexities, but susequent usage can be faster if they are created once.
+  - Effective to use ternary operator if you find it more readable
+*/
 
 // Write a function that generates the multiplication table of a given number up to 10.
 
