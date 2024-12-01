@@ -197,7 +197,22 @@ const popElement = (inputArray) => {
  - Add more array based checks to improve effectiveness if required.
 */
 
-// Write a function that swaps the values of two variables.
+//11. Write a function that swaps the values of two variables.
+//My Way
+const swapVariables = (variableOne, variableTwo) => {
+    if (!(variableOne && variableTwo)) return "Enter both variables for swap";
+    if(typeof variableOne !== "number" || typeof variableTwo !== "number") return "Both values should be numbers";
+    let temporaryVariable = variableOne;
+    variableOne = variableTwo;
+    variableTwo = temporaryVariable;
+    return "Values swapped!";
+}
+
+/*
+ - Gets two input variable numbers, check their presence and availability, uses tempo variable to store first one's value as the swap occurs, returns the values once swapped.
+ - Time complexity O(1)
+ - Add more checks for the iputs if required for more effectiveness. Use a = a+b; b = a-b ; a = a-b; if you don't want the temp variable.
+*/
 
 // Write a function to check if a string contains another string.
 
