@@ -359,4 +359,19 @@ const repeatString = (inputString,repeatNumber) => {
  - Use inputString.repeat(repeatNumber) instead of the loop, uses less space and is more optimized. Also add valuations for the inputs if required.
 */
 
-// Write a function to reverse an array.
+//20. Write a function to reverse an array.
+//My way
+const reverseArray = (inputArray) => {
+    if (!Array.isArray(inputArray)) return "Enter valid array" ;
+    let reversedArray = []
+    for (let i = inputArray.length-1 ; i >= 0 ; i--) {
+        reversedArray.push(inputArray[i]);
+    }
+    return reversedArray;
+}
+
+/*
+ - Gets an input inputArray and checks type and creates another empty array to return values. 
+ - Iterates backwards through input array, time comlexity = O(n) , where n is the length of inputArray
+ - There are lot of ways to implement array reverse like inputArray.reverse() , [...inputArray].reverse to a new variable, two-pointer technique etc.,
+*/
