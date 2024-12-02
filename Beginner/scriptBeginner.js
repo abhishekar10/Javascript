@@ -343,6 +343,20 @@ const sumOfDigits = (inputNumber) => {
  - Can add more cases to check if negative, or just return the sum if the sum alone is needed based on requirements. 
 */
 
-// Write a function to repeat a string n times.
+//19. Write a function to repeat a string n times.
+//My Way
+const repeatString = (inputString,repeatNumber) => {
+    if(typeof inputString !== "string") return "Enter valid string";
+    if(typeof repeatNumber !== "number") return "Enter valid number";
+    for (let i = 1 ; i <= repeatNumber; i++) {
+        console.log(inputString);
+    }
+}
+
+/*
+ - Gets an input string and number, checks value, logs the string repeatNumber number of times
+ - The loop runs repeatNumber number of times, time complexity = O(repeatNumber)
+ - Use inputString.repeat(repeatNumber) instead of the loop, uses less space and is more optimized. Also add valuations for the inputs if required.
+*/
 
 // Write a function to reverse an array.
