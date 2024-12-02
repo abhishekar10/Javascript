@@ -1,6 +1,35 @@
 //1. Write a function that takes an array of numbers and returns the second largest number.
 //My Way
+const secondLargest = (inputArray) => {
+    if (!Array.isArray(inputArray)) return "Enter valid array";
+    inputArray = new Set(inputArray);
+    inputArrayLength = inputArray.length
+    for (let i = 0 ; i < inputArrayLength ; i++) {
+        for (let j = i+1 ; j < inputArrayLength ; j++) {
+            if (inputArray[i] > inputArray[j]) {
+                inputArray[i] += inputArray[j];
+                inputArray[j] = inputArray[i] - inputArray[j];
+                inputArray[i] -= inputArray[j];
+            }
+        }
+    }
+    return inputArray[inputArrayLength-2];
+}
 
+/*
+ - Gets an array input, checks type. Makes it a set so there aren't two values of the same value. Sorts array and returns second last value. 
+ - Nested loop for sorting, time complexity = O(inputArrayLength^2)
+ - More efficient to use the logic as follows :
+ for (const num of uniqueArray) {
+    if (num > largest) {
+        secondLargest = largest;
+        largest = num;
+    } else if (num > secondLargest && num < largest) {
+        secondLargest = num;
+    }
+ }
+ - The above code has time comp of O(inputArrayLength), add more validations on the array to include array length more than one etc/. if required.
+*/
 
 // Create a function that checks if a given string is a palindrome, ignoring spaces, punctuation, and case.
 
