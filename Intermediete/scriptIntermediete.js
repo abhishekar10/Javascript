@@ -58,7 +58,23 @@ const checkIfPalindrome = (inputString) => {
  - Instead of the last if block, we can just use return reverseString === correctedString.
 */
 
-// Implement a function to remove duplicates from an array without using Set.
+//3. Implement a function to remove duplicates from an array without using Set.
+const removeDuplicates = (inputArray) => {
+    if (!Array.isArray(inputArray)) return "Enter valid list";
+    let counter = {};
+    let newArray = [];
+    for (let i of inputArray) {
+        if (!counter[i]) {
+                counter[i] = true;
+                newArray.push(i);
+        }
+    }
+    return newArray;
+}
+/*
+ - Gets an input array, checks if it is an array, creates a key to store the values if they exist already, creates a new array
+ - For each element in input array, if key value exists in the counter object, the value is not added. Time complexity = O(n) where n is the length of inputArray
+*/
 
 // Write a function that finds the first non-repeating character in a string and returns it. If all characters repeat, return null.
 
