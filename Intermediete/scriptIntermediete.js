@@ -31,7 +31,32 @@ const secondLargest = (inputArray) => {
  - The above code has time comp of O(inputArrayLength), add more validations on the array to include array length more than one etc/. if required.
 */
 
-// Create a function that checks if a given string is a palindrome, ignoring spaces, punctuation, and case.
+//2. Create a function that checks if a given string is a palindrome, ignoring spaces, punctuation, and case.
+//My Way
+const checkIfPalindrome = (inputString) => {
+    if(typeof inputString !== "string") return "Enter valid string";
+    const currentString = inputString.toLowerCase();
+    let correctedString = "";
+    let reverseString = "";
+    for (let i = currentString.length-1 ; i >= 0 ; i--) {
+        let j = currentString[i];
+        if ( j !== ' ' &&  j !== '.' && j!== ',' && j!== '?' && j!== '!') {
+            reverseString += j;
+            correctedString = j + correctedString;
+        }
+    }
+    if (reverseString === correctedString) return true;
+    return false ;
+}
+
+/*
+ - Gets an input string, checks if valid string, moves to lower case, creates two strings to compare, runs a loopto check if there is no punctuation and add them to the strings, return if they are same or not.
+ - Loop travserses through inputString, time complexity = O(n) ,where n is the length of inputString
+ - Instead of the whole loop block, we can use 
+        const correctedString = inputString.toLowerCase().replace(/[^a-z0-9]/g, "");
+        const reverseString = correctedString.split("").reverse().join("");
+ - Instead of the last if block, we can just use return reverseString === correctedString.
+*/
 
 // Implement a function to remove duplicates from an array without using Set.
 
