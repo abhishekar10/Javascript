@@ -76,7 +76,27 @@ const removeDuplicates = (inputArray) => {
  - For each element in input array, if key value exists in the counter object, the value is not added. Time complexity = O(n) where n is the length of inputArray
 */
 
-// Write a function that finds the first non-repeating character in a string and returns it. If all characters repeat, return null.
+//4. Write a function that finds the first non-repeating character in a string and returns it. If all characters repeat, return null.
+const findRepeatingChar = (inputString) => {
+    if(typeof inputString !== "string") return "Enter valid string";
+    let counter = {};
+    for (let i of inputString) {
+        if (!counter[i]) {
+            counter[i] = 1;
+        } else {
+            counter[i]++;
+        }
+    }
+    for (let i in counter) {
+        if (counter[i] === 1) return i;
+    }
+    return null;
+}
+
+/*
+    - Gets an input string, checks if it is a string, creates a key to store the values if they exist already, creates a new key and value if not.
+    - For each element in input string, if key value exists in the counter object, the value is not added. Time complexity = O(n) where n is the length of inputString
+*/
 
 // Given an array of objects representing products (with name and price), sort them in ascending order of price.
 
