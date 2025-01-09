@@ -98,7 +98,17 @@ const findRepeatingChar = (inputString) => {
     - For each element in input string, if key value exists in the counter object, the value is not added. Time complexity = O(n) where n is the length of inputString
 */
 
-// Given an array of objects representing products (with name and price), sort them in ascending order of price.
+//5. Given an array of objects representing products (with name and price), sort them in ascending order of price.
+const sortProducts = (inputArray) => {
+    if (!Array.isArray(inputArray)) return "Enter valid array";
+    inputArray.sort((a,b) => a.price - b.price);
+    return inputArray;
+}
+
+/*
+    - Gets an input array, checks if it is an array, sorts the array based on the price of the objects in the array.
+     - Time complexity = O(nlogn) where n is the length of inputArray
+*/
 
 // Create a function to flatten a nested array of any depth into a single-level array.
 
