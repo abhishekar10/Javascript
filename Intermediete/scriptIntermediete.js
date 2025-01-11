@@ -110,7 +110,16 @@ const sortProducts = (inputArray) => {
      - Time complexity = O(nlogn) where n is the length of inputArray
 */
 
-// Create a function to flatten a nested array of any depth into a single-level array.
+//6. Create a function to flatten a nested array of any depth into a single-level array.
+const flattenArray = (inputArray) => {
+    if (!Array.isArray(inputArray)) return "Enter valid array";
+    return inputArray.flat(Infinity);
+}
+
+/*
+    - Gets an input array, checks if it is an array, uses the flat method to flatten the array to a single level.
+    - Time complexity = O(n) where n is the length of inputArray
+*/
 
 // Write a function to count the occurrences of each word in a given sentence and return an object with word counts.
 
