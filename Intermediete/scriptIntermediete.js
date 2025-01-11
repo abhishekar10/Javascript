@@ -121,7 +121,25 @@ const flattenArray = (inputArray) => {
     - Time complexity = O(n) where n is the length of inputArray
 */
 
-// Write a function to count the occurrences of each word in a given sentence and return an object with word counts.
+//7. Write a function to count the occurrences of each word in a given sentence and return an object with word counts.
+const countWords = (inputString) => {
+    if(typeof inputString !== "string") return "Enter valid string";
+    let counter = {};
+    let words = inputString.split(" ");
+    for (let i of words) {
+        if (!counter[i]) {
+            counter[i] = 1;
+        } else {
+            counter[i]++;
+        }
+    }
+    return counter;
+}
+
+/*
+    - Gets an input string, checks if it is a string, splits the string into words, creates a key to store the values if they exist already, creates a new key and value if not.
+    - For each element in input string, if key value exists in the counter object, the value is not added. Time complexity = O(n) where n is the length of inputString
+*/
 
 // Implement a function to group an array of strings by their first character into an object.
 
