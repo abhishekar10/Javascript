@@ -160,7 +160,21 @@ const groupByFirstChar = (inputArray) => {
     - For each element in input array, if key value exists in the counter object, the value is not added. Time complexity = O(n) where n is the length of inputArray
 */
 
-// Write a function to validate if a given string is a valid IPv4 address.
+//9. Write a function to validate if a given string is a valid IPv4 address.
+const validateIPv4 = (inputString) => {
+    if(typeof inputString !== "string") return "Enter valid string";
+    let ip = inputString.split(".");
+    if (ip.length !== 4) return false;
+    for (let i of ip) {
+        if (i < 0 || i > 255 || isNaN(i)) return false;
+    }
+    return true;
+}
+
+/*
+    - Gets an input string, checks if it is a string, splits the string into parts, checks if the length is 4, checks if each part is between 0 and 255 and is a number.
+    - Time complexity = O(n) where n is the length of inputString
+*/
 
 // Write a function to calculate the sum of all prime numbers less than a given number n.
 
