@@ -141,7 +141,24 @@ const countWords = (inputString) => {
     - For each element in input string, if key value exists in the counter object, the value is not added. Time complexity = O(n) where n is the length of inputString
 */
 
-// Implement a function to group an array of strings by their first character into an object.
+//8. Implement a function to group an array of strings by their first character into an object.
+const groupByFirstChar = (inputArray) => {
+    if (!Array.isArray(inputArray)) return "Enter valid array";
+    let counter = {};
+    for (let i of inputArray) {
+        if (!counter[i[0]]) {
+            counter[i[0]] = [i];
+        } else {
+            counter[i[0]].push(i);
+        }
+    }
+    return counter;
+}
+
+/*
+    - Gets an input array, checks if it is an array, creates a key to store the values if they exist already, creates a new key and value if not.
+    - For each element in input array, if key value exists in the counter object, the value is not added. Time complexity = O(n) where n is the length of inputArray
+*/
 
 // Write a function to validate if a given string is a valid IPv4 address.
 
