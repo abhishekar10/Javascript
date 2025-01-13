@@ -209,7 +209,28 @@ const sortString = (inputString) => {
     - Time complexity = O(nlogn) where n is the length of inputString
 */
 
-// Write a function to merge two sorted arrays into a single sorted array without using built-in sorting methods.
+//12. Write a function to merge two sorted arrays into a single sorted array without using built-in sorting methods.
+const mergeSortedArrays = (arr1, arr2) => {
+    if (!Array.isArray(arr1) || !Array.isArray(arr2)) return "Enter valid array";
+    let mergedArray = [];
+    let i = 0;
+    let j = 0;
+    while (i < arr1.length && j < arr2.length) {
+        if (arr1[i] < arr2[j]) {
+            mergedArray.push(arr1[i]);
+            i++;
+        } else {
+            mergedArray.push(arr2[j]);
+            j++;
+        }
+    }
+    return mergedArray.concat(arr1.slice(i)).concat(arr2.slice(j));
+}
+
+/*
+    - Gets two input arrays, checks if they are arrays, creates a new array, compares the first element of both arrays and adds the smaller one to the new array.
+    - Time complexity = O(n) where n is the length of both input arrays
+*/
 
 // Write a function that calculates the nth Fibonacci number without using recursion (iterative approach).
 
