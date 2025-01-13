@@ -198,7 +198,16 @@ const isPrime = (num) => {
     - Time complexity = O(n*sqrt(n)) where n is the input number
 */
 
-// Create a function that takes a string and returns a new string with the characters sorted in alphabetical order.
+//11. Create a function that takes a string and returns a new string with the characters sorted in alphabetical order.
+const sortString = (inputString) => {
+    if(typeof inputString !== "string") return "Enter valid string";
+    return inputString.split("").sort().join("");
+}
+
+/*
+    - Gets an input string, checks if it is a string, splits the string into characters, sorts the characters and joins them back.
+    - Time complexity = O(nlogn) where n is the length of inputString
+*/
 
 // Write a function to merge two sorted arrays into a single sorted array without using built-in sorting methods.
 
