@@ -176,7 +176,27 @@ const validateIPv4 = (inputString) => {
     - Time complexity = O(n) where n is the length of inputString
 */
 
-// Write a function to calculate the sum of all prime numbers less than a given number n.
+//10. Write a function to calculate the sum of all prime numbers less than a given number n.
+const getSumOfPrimes = (n) => {
+    if (typeof n !== "number") return "Enter valid number";
+    let sum = 0;
+    for (let i = 2; i < n; i++) {
+        if (isPrime(i)) sum += i;
+    }
+    return sum;
+}
+
+const isPrime = (num) => {
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+}
+
+/*
+    - Gets an input number, checks if it is a number, checks if the number is prime, adds the prime number to the sum.
+    - Time complexity = O(n*sqrt(n)) where n is the input number
+*/
 
 // Create a function that takes a string and returns a new string with the characters sorted in alphabetical order.
 
