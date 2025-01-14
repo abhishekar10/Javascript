@@ -232,7 +232,20 @@ const mergeSortedArrays = (arr1, arr2) => {
     - Time complexity = O(n) where n is the length of both input arrays
 */
 
-// Write a function that calculates the nth Fibonacci number without using recursion (iterative approach).
+//13. Write a function that calculates the nth Fibonacci number without using recursion (iterative approach).
+const fibonacci = (n) => {
+    if (typeof n !== "number") return "Enter valid number";
+    let fib = [0, 1];
+    for (let i = 2; i <= n; i++) {
+        fib[i] = fib[i-1] + fib[i-2];
+    }
+    return fib[n];
+}
+
+/* 
+    - Gets an input number, checks if it is a number, creates an array with the first two fibonacci numbers, calculates the nth fibonacci number.
+    - Time complexity = O(n) where n is the input number
+*/
 
 // Write a function to find the intersection of two arrays, returning only the common elements.
 
