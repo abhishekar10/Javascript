@@ -247,7 +247,20 @@ const fibonacci = (n) => {
     - Time complexity = O(n) where n is the input number
 */
 
-// Write a function to find the intersection of two arrays, returning only the common elements.
+//14. Write a function to find the intersection of two arrays, returning only the common elements.
+const findIntersection = (arr1, arr2) => {
+    if (!Array.isArray(arr1) || !Array.isArray(arr2)) return "Enter valid array";
+    let intersection = [];
+    for (let i of arr1) {
+        if (arr2.includes(i)) intersection.push(i);
+    }
+    return intersection;
+}
+
+/*
+    - Gets two input arrays, checks if they are arrays, creates a new array, checks if the element of first array is in the second array and adds it to the new array.
+    - Time complexity = O(n) where n is the length of both input arrays
+*/
 
 // Implement a function to rotate an array n steps to the right, where n is a given number.
 
