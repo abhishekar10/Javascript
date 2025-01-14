@@ -262,7 +262,17 @@ const findIntersection = (arr1, arr2) => {
     - Time complexity = O(n) where n is the length of both input arrays
 */
 
-// Implement a function to rotate an array n steps to the right, where n is a given number.
+//15. Implement a function to rotate an array n steps to the right, where n is a given number.
+const rotateArray = (arr, n) => {
+    if (!Array.isArray(arr) || typeof n !== "number") return "Enter valid array and number";
+    let index = n % arr.length;
+    return arr.slice(-index).concat(arr.slice(0, -index));
+}
+
+/*
+    - Gets an input array and a number, checks if they are an array and a number, calculates the index to rotate the array, rotates the array.
+    - Time complexity = O(n) where n is the length of the input array
+*/
 
 // Write a function to calculate the time difference between two timestamps in the format "HH:MM:SS" and return the result in hours and minutes.
 
