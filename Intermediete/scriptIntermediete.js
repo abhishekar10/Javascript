@@ -274,7 +274,24 @@ const rotateArray = (arr, n) => {
     - Time complexity = O(n) where n is the length of the input array
 */
 
-// Write a function to calculate the time difference between two timestamps in the format "HH:MM:SS" and return the result in hours and minutes.
+//16. Write a function to calculate the time difference between two timestamps in the format "HH:MM:SS" and return the result in hours and minutes.
+
+const timeDifference = (time1, time2) => {
+    if (typeof time1 !== "string" || typeof time2 !== "string") return "Enter valid time";
+    let [hours1, minutes1, seconds1] = time1.split(":").map(Number);
+    let [hours2, minutes2, seconds2] = time2.split(":").map(Number);
+    let time1InSeconds = hours1 * 3600 + minutes1 * 60 + seconds1;
+    let time2InSeconds = hours2 * 3600 + minutes2 * 60 + seconds2;
+    let difference = Math.abs(time1InSeconds - time2InSeconds);
+    let hours = Math.floor(difference / 3600);
+    let minutes = Math.floor((difference % 3600) / 60);
+    return `${hours} hours and ${minutes} minutes`;
+}
+
+/*
+    - Gets two input times, checks if they are strings, splits the times into hours, minutes and seconds, calculates the time in seconds, calculates the difference in seconds, converts the difference to hours and minutes.
+    - Time complexity = O(1)
+*/
 
 // Write a function to check if a string has balanced parentheses (e.g., "(())" is balanced, but "(()" is not).
 
