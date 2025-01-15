@@ -293,7 +293,26 @@ const timeDifference = (time1, time2) => {
     - Time complexity = O(1)
 */
 
-// Write a function to check if a string has balanced parentheses (e.g., "(())" is balanced, but "(()" is not).
+//17. Write a function to check if a string has balanced parentheses (e.g., "(())" is balanced, but "(()" is not).
+
+const checkBalancedParentheses = (inputString) => {
+    if(typeof inputString !== "string") return "Enter valid string";
+    let stack = [];
+    for (let i of inputString) {
+        if (i === "(") {
+            stack.push(i);
+        } else if (i === ")") {
+            if (stack.length === 0) return false;
+            stack.pop();
+        }
+    }
+    return stack.length === 0;
+}
+
+/*
+    - Gets an input string, checks if it is a string, creates a stack, for each element in the string, adds to the stack if it is an opening parenthesis, removes from the stack if it is a closing parenthesis.
+    - Time complexity = O(n) where n is the length of the input string
+*/
 
 // Write a function that returns all possible permutations of a given string.
 
