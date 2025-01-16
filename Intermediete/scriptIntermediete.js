@@ -315,6 +315,7 @@ const checkBalancedParentheses = (inputString) => {
 */
 
 //18. Write a function that returns all possible permutations of a given string.
+
 const permutations = (inputString) => {
     if(typeof inputString !== "string") return "Enter valid string";
     if (inputString.length === 0) return [""];
@@ -334,6 +335,21 @@ const permutations = (inputString) => {
     - Time complexity = O(n!) where n is the length of the input string
 */
 
-// Create a function to generate a random string of a given length using alphanumeric characters.
+//19. Create a function to generate a random string of a given length using alphanumeric characters.
+
+const randomString = (length) => {
+    if (typeof length !== "number") return "Enter valid number";
+    let result = "";
+    let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+}
+
+/*
+    - Gets an input number, checks if it is a number, creates a string of characters, generates a random string of the given length.
+    - Time complexity = O(n) where n is the input number
+*/
 
 // Implement a function to calculate the factorial of a number using memoization to optimize repeated calculations.
