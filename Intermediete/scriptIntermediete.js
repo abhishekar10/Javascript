@@ -352,4 +352,16 @@ const randomString = (length) => {
     - Time complexity = O(n) where n is the input number
 */
 
-// Implement a function to calculate the factorial of a number using memoization to optimize repeated calculations.
+//20. Implement a function to calculate the factorial of a number using memoization to optimize repeated calculations.
+
+const factorial = (n, memo = {}) => {
+    if (n in memo) return memo[n];
+    if (n === 0) return 1;
+    memo[n] = n * factorial(n - 1, memo);
+    return memo[n];
+}
+
+/*
+    - Gets an input number and a memo object, checks if the number is in the memo object, calculates the factorial of the number using memoization.
+    - Time complexity = O(n) where n is the input number
+*/
