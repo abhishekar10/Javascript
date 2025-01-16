@@ -314,7 +314,25 @@ const checkBalancedParentheses = (inputString) => {
     - Time complexity = O(n) where n is the length of the input string
 */
 
-// Write a function that returns all possible permutations of a given string.
+//18. Write a function that returns all possible permutations of a given string.
+const permutations = (inputString) => {
+    if(typeof inputString !== "string") return "Enter valid string";
+    if (inputString.length === 0) return [""];
+    let result = [];
+    for (let i = 0; i < inputString.length; i++) {
+        let char = inputString[i];
+        let remainingChars = inputString.slice(0, i) + inputString.slice(i + 1);
+        for (let perm of permutations(remainingChars)) {
+            result.push(char + perm);
+        }
+    }
+    return result;
+}
+
+/*
+    - Gets an input string, checks if it is a string, if the string is empty, returns an empty string, for each character in the string, creates a new string with the character removed and calls the function recursively.
+    - Time complexity = O(n!) where n is the length of the input string
+*/
 
 // Create a function to generate a random string of a given length using alphanumeric characters.
 
