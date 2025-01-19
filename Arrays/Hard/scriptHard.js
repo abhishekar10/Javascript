@@ -1,4 +1,32 @@
-// - Implement a function to find all unique permutations of a given string.  
+//1. Implement a function to find all unique permutations of a given string.
+
+const uniquePermutations = (str) => {
+    const result = [];
+    const used = Array(str.length).fill(false);
+    const permute = (current) => {
+        if (current.length === str.length) {
+            result.push(current);
+            return;
+        }
+        for (let i = 0; i < str.length; i++) {
+            if (used[i]) continue;
+            if (i > 0 && str[i] === str[i - 1] && !used[i - 1]) continue;
+            used[i] = true;
+            permute(current + str[i]);
+            used[i] = false;
+        }
+    }
+    permute('');
+    return result;
+}
+
+console.log(uniquePermutations('aabb'));
+
+/*
+     - Gets an input string and returns all unique permutations of the string.
+     - Time complexity is O(n!), where n is the length of the input string.
+*/
+
 // - Write a function to calculate the nth Fibonacci number using memoization.  
 // - Create a deep clone function for an object, handling nested objects and arrays.  
 // - Implement a function to determine if a string is a valid palindrome, ignoring spaces and special characters.  
