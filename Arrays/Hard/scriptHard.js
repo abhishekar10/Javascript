@@ -27,7 +27,21 @@ console.log(uniquePermutations('aabb'));
      - Time complexity is O(n!), where n is the length of the input string.
 */
 
-// - Write a function to calculate the nth Fibonacci number using memoization.  
+//2. Write a function to calculate the nth Fibonacci number using memoization. 
+
+const fibonacci = (n, memo = {}) => {
+    if (n in memo) return memo[n];
+    if (n <= 1) return n;
+    return memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
+}
+
+console.log(fibonacci(10));
+
+/*
+    - Gets an integer n and returns the nth Fibonacci number using memoization.
+    - Time complexity is O(n). Where n is the input integer.
+*/
+
 // - Create a deep clone function for an object, handling nested objects and arrays.  
 // - Implement a function to determine if a string is a valid palindrome, ignoring spaces and special characters.  
 // - Write a function to flatten a deeply nested array without using built-in methods like `flat()`.  
