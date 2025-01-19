@@ -42,7 +42,35 @@ console.log(fibonacci(10));
     - Time complexity is O(n). Where n is the input integer.
 */
 
-// - Create a deep clone function for an object, handling nested objects and arrays.  
+//3. Create a deep clone function for an object, handling nested objects and arrays.  
+
+const deepClone = (obj) => {
+    if (obj === null || typeof obj !== 'object') return obj;
+    const clone = Array.isArray(obj) ? [] : {};
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            clone[key] = deepClone(obj[key]);
+        }
+    }
+    return clone;
+}
+
+const obj = {
+    a: 1,
+    b: {
+        c: 2,
+        d: [3, 4]
+    }
+}
+
+const clone = deepClone(obj);
+console.log(clone);
+
+/*
+    - Gets an object and returns a deep clone of the object.
+    - Time complexity is O(n), where n is the number of keys in the input object.
+*/
+
 // - Implement a function to determine if a string is a valid palindrome, ignoring spaces and special characters.  
 // - Write a function to flatten a deeply nested array without using built-in methods like `flat()`.  
 // - Build a custom implementation of the `Promise.all()` method.  
