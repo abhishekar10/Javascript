@@ -144,7 +144,36 @@ promiseAll([promise1, promise2]).then((results) => {
     - Time complexity is O(n), where n is the number of promises in the input array.
 */
 
-// - Write a function to convert a Roman numeral to an integer.  
+//7. Write a function to convert a Roman numeral to an integer.  
+
+const romanToInt = (s) => {
+    const romanValues = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    };
+    let result = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (i > 0 && romanValues[s[i]] > romanValues[s[i - 1]]) {
+            result += romanValues[s[i]] - 2 * romanValues[s[i - 1]];
+        } else {
+            result += romanValues[s[i]];
+        }
+    }
+    return result;
+}
+
+console.log(romanToInt('MCMXCIV'));
+
+/*
+    - Gets a Roman numeral string and returns the corresponding integer value.
+    - Time complexity is O(n), where n is the length of the input string.
+*/
+
 // - Implement a function to find the longest substring without repeating characters.  
 // - Create a function to solve the "N-Queens" problem for a given board size.  
 // - Implement a debounce function and demonstrate its usage.  
