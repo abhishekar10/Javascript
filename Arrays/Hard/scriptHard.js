@@ -137,7 +137,7 @@ const promise2 = new Promise((resolve) => setTimeout(() => resolve(2), 2000));
 
 promiseAll([promise1, promise2]).then((results) => {
     console.log(results);
-}
+});
 
 /*
     - Gets an array of promises and returns a promise that resolves when all promises are resolved.
