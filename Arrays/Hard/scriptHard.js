@@ -71,7 +71,25 @@ console.log(clone);
     - Time complexity is O(n), where n is the number of keys in the input object.
 */
 
-// - Implement a function to determine if a string is a valid palindrome, ignoring spaces and special characters.  
+//3. Implement a function to determine if a string is a valid palindrome, ignoring spaces and special characters.
+
+const isPalindrome = (str) => {
+    const cleanStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    let left = 0;
+    let right = cleanStr.length - 1;
+    while (left < right) {
+        if (cleanStr[left] !== cleanStr[right]) return false;
+        left++;
+        right--;
+    }
+    return true;
+}
+
+/*
+    - Gets a string and returns true if it is a valid palindrome, ignoring spaces and special characters.
+    - Time complexity is O(n), where n is the length of the input string.
+*/
+
 // - Write a function to flatten a deeply nested array without using built-in methods like `flat()`.  
 // - Build a custom implementation of the `Promise.all()` method.  
 // - Write a function to convert a Roman numeral to an integer.  
