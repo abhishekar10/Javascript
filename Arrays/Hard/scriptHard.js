@@ -90,7 +90,30 @@ const isPalindrome = (str) => {
     - Time complexity is O(n), where n is the length of the input string.
 */
 
-// - Write a function to flatten a deeply nested array without using built-in methods like `flat()`.  
+//5. Write a function to flatten a deeply nested array without using built-in methods like `flat()`.
+
+const flattenArray = (arr) => {
+    const result = [];
+    const flatten = (arr) => {
+        for (let i = 0; i < arr.length; i++) {
+            if (Array.isArray(arr[i])) {
+                flatten(arr[i]);
+            } else {
+                result.push(arr[i]);
+            }
+        }
+    }
+    flatten(arr);
+    return result;
+}
+
+console.log(flattenArray([1, [2, [3, 4], 5], 6]));
+
+/*
+    - Gets a deeply nested array and returns a flattened array.
+    - Time complexity is O(n), where n is the total number of elements in the input array.
+*/
+
 // - Build a custom implementation of the `Promise.all()` method.  
 // - Write a function to convert a Roman numeral to an integer.  
 // - Implement a function to find the longest substring without repeating characters.  
