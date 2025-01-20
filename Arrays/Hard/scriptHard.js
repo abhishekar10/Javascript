@@ -114,7 +114,36 @@ console.log(flattenArray([1, [2, [3, 4], 5], 6]));
     - Time complexity is O(n), where n is the total number of elements in the input array.
 */
 
-// - Build a custom implementation of the `Promise.all()` method.  
+//6. Build a custom implementation of the `Promise.all()` method.
+
+const promiseAll = (promises) => {
+    return new Promise((resolve, reject) => {
+        const results = [];
+        let completed = 0;
+        promises.forEach((promise, index) => {
+            promise.then((result) => {
+                results[index] = result;
+                completed++;
+                if (completed === promises.length) {
+                    resolve(results);
+                }
+            }).catch(reject);
+        });
+    });
+}
+
+const promise1 = new Promise((resolve) => setTimeout(() => resolve(1), 1000));
+const promise2 = new Promise((resolve) => setTimeout(() => resolve(2), 2000));
+
+promiseAll([promise1, promise2]).then((results) => {
+    console.log(results);
+}
+
+/*
+    - Gets an array of promises and returns a promise that resolves when all promises are resolved.
+    - Time complexity is O(n), where n is the number of promises in the input array.
+*/
+
 // - Write a function to convert a Roman numeral to an integer.  
 // - Implement a function to find the longest substring without repeating characters.  
 // - Create a function to solve the "N-Queens" problem for a given board size.  
