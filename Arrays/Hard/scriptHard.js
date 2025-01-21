@@ -233,7 +233,28 @@ console.log(solveNQueens(4));
 
 */
 
-// - Implement a debounce function and demonstrate its usage.  
+//10. Implement a debounce function and demonstrate its usage.  
+
+const debounce = (func, delay) => {
+    let timeout;
+    return function () {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), delay);
+    }
+}
+
+const log = debounce(() => console.log('Hello'), 1000);
+log();
+log();
+log();
+
+/*
+    - Gets a function and a delay time and returns a debounced version of the function.
+    - Time complexity is O(1).
+*/
+
 // - Write a function to generate all subsets (power set) of a given array.  
 // - Create a function to check if two strings are anagrams of each other.  
 // - Implement a function to perform a binary search on a sorted array.  
