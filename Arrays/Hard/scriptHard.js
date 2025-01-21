@@ -195,7 +195,44 @@ const lengthOfLongestSubstring = (s) => {
     - Time complexity is O(n), where n is the length of the input string.
 */
 
-// - Create a function to solve the "N-Queens" problem for a given board size.  
+//9. Create a function to solve the "N-Queens" problem for a given board size. 
+
+const solveNQueens = (n) => {
+    const result = [];
+    const board = Array(n).fill().map(() => Array(n).fill('.'));
+    const isValid = (row, col) => {
+        for (let i = 0; i < row; i++) {
+            if (board[i][col] === 'Q') return false;
+            if (col - (row - i) >= 0 && board[i][col - (row - i)] === 'Q') return false;
+            if (col + (row - i) < n && board[i][col + (row - i)] === 'Q') return false;
+        }
+        return true;
+    }
+    const solve = (row) => {
+        if (row === n) {
+            result.push(board.map(row => row.join('')));
+            return;
+        }
+        for (let col = 0; col < n; col++) {
+            if (isValid(row, col)) {
+                board[row][col] = 'Q';
+                solve(row + 1);
+                board[row][col] = '.';
+            }
+        }
+    }
+    solve(0);
+    return result;
+}
+
+console.log(solveNQueens(4));
+
+/*
+    - Gets an integer n and returns all solutions to the N-Queens problem for a board of size n x n.
+    - Time complexity is O(n!), where n is the input integer.
+
+*/
+
 // - Implement a debounce function and demonstrate its usage.  
 // - Write a function to generate all subsets (power set) of a given array.  
 // - Create a function to check if two strings are anagrams of each other.  
