@@ -174,7 +174,27 @@ console.log(romanToInt('MCMXCIV'));
     - Time complexity is O(n), where n is the length of the input string.
 */
 
-// - Implement a function to find the longest substring without repeating characters.  
+//8. Implement a function to find the longest substring without repeating characters.
+
+const lengthOfLongestSubstring = (s) => {
+    const map = {};
+    let left = 0;
+    let max = 0;
+    for (let right = 0; right < s.length; right++) {
+        if (map[s[right]] >= left) {
+            left = map[s[right]] + 1;
+        }
+        map[s[right]] = right;
+        max = Math.max(max, right - left + 1);
+    }
+    return max;
+}
+
+/*
+    - Gets a string and returns the length of the longest substring without repeating characters.
+    - Time complexity is O(n), where n is the length of the input string.
+*/
+
 // - Create a function to solve the "N-Queens" problem for a given board size.  
 // - Implement a debounce function and demonstrate its usage.  
 // - Write a function to generate all subsets (power set) of a given array.  
