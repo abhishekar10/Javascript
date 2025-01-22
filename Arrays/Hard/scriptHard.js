@@ -276,7 +276,28 @@ console.log(subsets([1, 2, 3]));
     - Time complexity is O(2^n), where n is the length of the input array.
 */
 
-// - Create a function to check if two strings are anagrams of each other.  
+//12. Create a function to check if two strings are anagrams of each other.
+
+const isAnagram = (s, t) => {
+    if (s.length !== t.length) return false;
+    const map = {};
+    for (let char of s) {
+        map[char] = (map[char] || 0) + 1;
+    }
+    for (let char of t) {
+        if (!map[char]) return false;
+        map[char]--;
+    }
+    return true;
+}
+
+console.log(isAnagram('anagram', 'nagaram'));
+
+/*
+    - Gets two strings and returns true if they are anagrams of each other.
+    - Time complexity is O(n), where n is the length of the input strings.
+*/
+
 // - Implement a function to perform a binary search on a sorted array.  
 // - Write a function to merge overlapping intervals from a list of intervals.  
 // - Implement a function to detect if a given directed graph contains a cycle.  
