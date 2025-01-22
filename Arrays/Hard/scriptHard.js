@@ -255,7 +255,27 @@ log();
     - Time complexity is O(1).
 */
 
-// - Write a function to generate all subsets (power set) of a given array.  
+//11. Write a function to generate all subsets (power set) of a given array.
+
+const subsets = (nums) => {
+    const result = [];
+    const generate = (index, current) => {
+        result.push(current);
+        for (let i = index; i < nums.length; i++) {
+            generate(i + 1, current.concat(nums[i]));
+        }
+    }
+    generate(0, []);
+    return result;
+}
+
+console.log(subsets([1, 2, 3]));
+
+/*
+    - Gets an array of integers and returns all subsets of the array.
+    - Time complexity is O(2^n), where n is the length of the input array.
+*/
+
 // - Create a function to check if two strings are anagrams of each other.  
 // - Implement a function to perform a binary search on a sorted array.  
 // - Write a function to merge overlapping intervals from a list of intervals.  
