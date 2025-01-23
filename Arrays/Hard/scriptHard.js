@@ -298,7 +298,30 @@ console.log(isAnagram('anagram', 'nagaram'));
     - Time complexity is O(n), where n is the length of the input strings.
 */
 
-// - Implement a function to perform a binary search on a sorted array.  
+//13. Implement a function to perform a binary search on a sorted array.
+
+const binarySearch = (arr, target) => {
+    let left = 0;
+    let right = arr.length - 1;
+    while (left <= right) {
+        const mid = left + Math.floor((right - left) / 2);
+        if (arr[mid] === target) return mid;
+        if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return -1;
+}
+
+console.log(binarySearch([1, 2, 3, 4, 5], 4));
+
+/*
+    - Gets a sorted array and a target value and returns the index of the target value in the array.
+    - Time complexity is O(log n), where n is the length of the input array.
+*/
+
 // - Write a function to merge overlapping intervals from a list of intervals.  
 // - Implement a function to detect if a given directed graph contains a cycle.  
 // - Write a function to solve the "Tower of Hanoi" problem.  
