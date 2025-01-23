@@ -322,7 +322,30 @@ console.log(binarySearch([1, 2, 3, 4, 5], 4));
     - Time complexity is O(log n), where n is the length of the input array.
 */
 
-// - Write a function to merge overlapping intervals from a list of intervals.  
+//14. Write a function to merge overlapping intervals from a list of intervals. 
+
+const mergeIntervals = (intervals) => {
+    intervals.sort((a, b) => a[0] - b[0]);
+    const result = [intervals[0]];
+    for (let i = 1; i < intervals.length; i++) {
+        const current = intervals[i];
+        const last = result[result.length - 1];
+        if (current[0] <= last[1]) {
+            last[1] = Math.max(last[1], current[1]);
+        } else {
+            result.push(current);
+        }
+    }
+    return result;
+}
+
+console.log(mergeIntervals([[1, 3], [2, 6], [8, 10], [15, 18]]));
+
+/*
+    - Gets a list of intervals and returns a list of merged intervals.
+    - Time complexity is O(n log n), where n is the number of intervals.
+*/
+
 // - Implement a function to detect if a given directed graph contains a cycle.  
 // - Write a function to solve the "Tower of Hanoi" problem.  
 // - Create a function to implement the LRU (Least Recently Used) cache mechanism.  
