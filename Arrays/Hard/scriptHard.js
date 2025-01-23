@@ -346,7 +346,42 @@ console.log(mergeIntervals([[1, 3], [2, 6], [8, 10], [15, 18]]));
     - Time complexity is O(n log n), where n is the number of intervals.
 */
 
-// - Implement a function to detect if a given directed graph contains a cycle.  
+//15. Implement a function to detect if a given directed graph contains a cycle.  
+
+const hasCycle = (graph) => {
+    const visited = new Set();
+    const recStack = new Set();
+    const hasCycleHelper = (node) => {
+        if (recStack.has(node)) return true;
+        if (visited.has(node)) return false;
+        visited.add(node);
+        recStack.add(node);
+        for (let neighbor of graph[node]) {
+            if (hasCycleHelper(neighbor)) return true;
+        }
+        recStack.delete(node);
+        return false;
+    }
+    for (let node in graph) {
+        if (hasCycleHelper(node)) return true;
+    }
+    return false;
+}
+
+const graph = {
+    0: [1, 2],
+    1: [2],
+    2: [0, 3],
+    3: [3]
+}
+
+console.log(hasCycle(graph));
+
+/*
+    - Gets a directed graph and returns true if the graph contains a cycle.
+    - Time complexity is O(V + E), where V is the number of vertices and E is the number of edges in the graph.
+*/
+
 // - Write a function to solve the "Tower of Hanoi" problem.  
 // - Create a function to implement the LRU (Least Recently Used) cache mechanism.  
 // - Write a function to find the maximum sum subarray using the Kadane’s algorithm.  
