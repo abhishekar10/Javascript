@@ -382,7 +382,25 @@ console.log(hasCycle(graph));
     - Time complexity is O(V + E), where V is the number of vertices and E is the number of edges in the graph.
 */
 
-// - Write a function to solve the "Tower of Hanoi" problem.  
+//16. Write a function to solve the "Tower of Hanoi" problem.  
+
+const towerOfHanoi = (n, source, target, auxiliary) => {
+    if (n === 1) {
+        console.log(`Move disk 1 from ${source} to ${target}`);
+        return;
+    }
+    towerOfHanoi(n - 1, source, auxiliary, target);
+    console.log(`Move disk ${n} from ${source} to ${target}`);
+    towerOfHanoi(n - 1, auxiliary, target, source);
+}
+
+towerOfHanoi(3, 'A', 'C', 'B');
+
+/*
+    - Gets the number of disks and the names of the source, target, and auxiliary rods and prints the steps to solve the Tower of Hanoi problem.
+    - Time complexity is O(2^n), where n is the number of disks.
+*/
+
 // - Create a function to implement the LRU (Least Recently Used) cache mechanism.  
 // - Write a function to find the maximum sum subarray using the Kadane’s algorithm.  
 // - Implement a function to serialize and deserialize a binary tree.  
