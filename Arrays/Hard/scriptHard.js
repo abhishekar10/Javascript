@@ -437,6 +437,24 @@ console.log(cache.get(2));
     - Time complexity is O(1).
 */
 
-// - Write a function to find the maximum sum subarray using the Kadane’s algorithm.  
+//18. Write a function to find the maximum sum subarray using the Kadane’s algorithm.  
+
+const maxSubArray = (nums) => {
+    let maxSum = nums[0];
+    let currentSum = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        currentSum = Math.max(nums[i], currentSum + nums[i]);
+        maxSum = Math.max(maxSum, currentSum);
+    }
+    return maxSum;
+}
+
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+/*
+    - Gets an array of integers and returns the maximum sum of a subarray.
+    - Time complexity is O(n), where n is the length of the input array.
+*/
+
 // - Implement a function to serialize and deserialize a binary tree.  
 // - Create a function to solve the "Word Break" problem using dynamic programming.  
