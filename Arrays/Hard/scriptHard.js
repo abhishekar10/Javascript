@@ -401,7 +401,42 @@ towerOfHanoi(3, 'A', 'C', 'B');
     - Time complexity is O(2^n), where n is the number of disks.
 */
 
-// - Create a function to implement the LRU (Least Recently Used) cache mechanism.  
+//17. Create a function to implement the LRU (Least Recently Used) cache mechanism.  
+
+class LRUCache {
+    constructor(capacity) {
+        this.capacity = capacity;
+        this.map = new Map();
+    }
+    get(key) {
+        if (!this.map.has(key)) return -1;
+        const value = this.map.get(key);
+        this.map.delete(key);
+        this.map.set(key, value);
+        return value;
+    }
+    put(key, value) {
+        if (this.map.has(key)) {
+            this.map.delete(key);
+        } else if (this.map.size === this.capacity) {
+            this.map.delete(this.map.keys().next().value);
+        }
+        this.map.set(key, value);
+    }
+}
+
+const cache = new LRUCache(2);
+cache.put(1, 1);
+cache.put(2, 2);
+console.log(cache.get(1));
+cache.put(3, 3);
+console.log(cache.get(2));
+
+/*
+    - Implements an LRU cache with get and put methods.
+    - Time complexity is O(1).
+*/
+
 // - Write a function to find the maximum sum subarray using the Kadane’s algorithm.  
 // - Implement a function to serialize and deserialize a binary tree.  
 // - Create a function to solve the "Word Break" problem using dynamic programming.  
