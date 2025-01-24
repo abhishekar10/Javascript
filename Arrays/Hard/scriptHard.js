@@ -456,5 +456,57 @@ console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
     - Time complexity is O(n), where n is the length of the input array.
 */
 
-// - Implement a function to serialize and deserialize a binary tree.  
+//19. Implement a function to serialize and deserialize a binary tree. 
+
+class TreeNode {
+    constructor(val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+const serialize = (root) => {
+    const result = [];
+    const traverse = (node) => {
+        if (node === null) {
+            result.push('null');
+            return;
+        }
+        result.push(node.val);
+        traverse(node.left);
+        traverse(node.right);
+    }
+    traverse(root);
+    return result.join(',');
+}
+
+const deserialize = (data) => {
+    const nodes = data.split(',');
+    const build = () => {
+        const val = nodes.shift();
+        if (val === 'null') return null;
+        const node = new TreeNode(parseInt(val));
+        node.left = build();
+        node.right = build();
+        return node;
+    }
+    return build();
+}
+
+const root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.right.left = new TreeNode(4);
+root.right.right = new TreeNode(5);
+const serialized = serialize(root);
+console.log(serialized);
+const deserialized = deserialize(serialized);
+console.log(deserialized);
+
+/*
+    - Implements serialization and deserialization of a binary tree.
+    - Time complexity is O(n), where n is the number of nodes in the tree.
+*/
+
 // - Create a function to solve the "Word Break" problem using dynamic programming.  
